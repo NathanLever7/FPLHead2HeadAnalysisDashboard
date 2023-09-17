@@ -38,6 +38,8 @@ st.write(times_in_position)
 
 # Display Percentage in Position as data tables
 st.header('Percentage in Position')
+st.write(percentage_in_position)
+
 selected_player_percentage = st.selectbox('Select a player for Percentage in Position', list(points_per_run.keys()))
 
 for index, row in percentage_in_position.iterrows():
@@ -51,6 +53,7 @@ for index, row in percentage_in_position.iterrows():
 
     # Clear the current figure to avoid interfering with sns.histplot
     plt.clf()
+
 
 st.header('xPoints')
 st.write(xPoints)
