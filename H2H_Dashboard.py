@@ -44,7 +44,7 @@ for index, row in percentage_in_position.iterrows():
     ax.bar(percentage_in_position.columns[1:], row[1:])
     ax.set_title(row[0])
     ax.set_xlabel('Finishing Position')
-    ax.set_ylabel('Percentage Change')
+    ax.set_ylabel('Percentage Chance')
     st.pyplot(fig)
 
 st.header('xPoints')
