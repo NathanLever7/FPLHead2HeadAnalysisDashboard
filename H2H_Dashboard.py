@@ -3,6 +3,8 @@ import pandas as pd
 import json
 import requests
 from datetime import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Specify the raw URLs of your data files
 url_total_position = 'https://raw.githubusercontent.com/NathanLever7/FPLHead2HeadAnalysisDashboard/main/total_position.csv'
@@ -33,14 +35,12 @@ st.write(total_position)
 st.header('Times in Position')
 st.write(times_in_position)
 
+# Display Percentage in Position as a bar chart
 st.header('Percentage in Position')
-st.write(percentage_in_position)
+st.bar_chart(percentage_in_position)
 
 st.header('xPoints')
 st.write(xPoints)
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 st.header('Points Per Run Distribution')
 
@@ -50,6 +50,7 @@ player = st.selectbox('Select a player', list(points_per_run.keys()))
 # Create and display histogram for the selected player
 sns.histplot(points_per_run[player], bins=10, kde=True)
 st.pyplot(plt)
+
 
 # Method Explanation
 st.markdown("""
