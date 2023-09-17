@@ -7,7 +7,7 @@ To get this outcome, I ran the .ipynb file to get the results (using league ID 4
 
 For pre-requisites, refer to the Requirements.txt file. These can be installed by running pip install -r requirements.txt in the terminal.
 
-##Method Explanation:
+## Explanation:
 
 In H2H leagues in Fantasy Premier League, you play against one other member of your league, based on a random fixture list generated when you set up the league. If you score more FPL points than this opponent, you will gain 3 league points. There is 1 for a draw, and 0 for a loss. Therefore, you league points are heavily influenced by the performance of your opponents - so the luck of the fixture list has a large impact.
 
