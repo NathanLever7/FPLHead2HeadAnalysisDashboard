@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 import requests
+from datetime import datetime
 
 # Specify the raw URLs of your data files
 url_total_position = 'https://raw.githubusercontent.com/NathanLever7/FPLHead2HeadAnalysisDashboard/main/total_position.csv'
@@ -18,6 +19,9 @@ xPoints = pd.read_csv(url_xPoints)
 
 response = requests.get(url_points_per_run)
 points_per_run = response.json()
+
+# Get the current date and time
+last_updated_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 # Create a title
 st.title('FPL Head2Head Analysis')
@@ -46,3 +50,17 @@ player = st.selectbox('Select a player', list(points_per_run.keys()))
 # Create and display histogram for the selected player
 sns.histplot(points_per_run[player], bins=10, kde=True)
 st.pyplot(plt)
+
+# Method Explanation
+st.markdown("""
+## Method Explanation:
+
+In H2H league in Fantasy Premier league, you play against one other member of your league, based on a random fixture list generated when you set up the league. If you score more FPL points than this opponent, you will gain 3 league points. There is 1 for a draw, and 0 for a loss. Therefore, your league points are heavily influenced by the performance of your opponents - so the luck of the fixture list has a large impact.
+
+To mitigate this, we pull the scores from the FPL API, create a random fixture list, and simulate league results. This is done 10,000 times. The end result hopes to eliminate the aforementioned fixture list variance.
+
+Contact nathanleversedge@gmail.com for more info.
+
+**Last Updated:** {}
+""".format(last_updated_time))
+
