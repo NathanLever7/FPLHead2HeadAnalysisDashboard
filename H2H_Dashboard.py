@@ -38,15 +38,16 @@ st.write(times_in_position)
 
 # Display Percentage in Position as data tables
 st.header('Percentage in Position')
-st.write(percentage_in_position)
+selected_player_percentage = st.selectbox('Select a player for Percentage in Position', list(points_per_run.keys()))
 
 for index, row in percentage_in_position.iterrows():
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.bar(percentage_in_position.columns[1:], row[1:])
-    ax.set_title(row[0])
-    ax.set_xlabel('Finishing Position')
-    ax.set_ylabel('Percentage Chance')
-    st.pyplot(fig)
+    if row[0] == selected_player_percentage:
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(percentage_in_position.columns[1:], row[1:], color='blue')  # Change color for Percentage in Position
+        ax.set_title(row[0])
+        ax.set_xlabel('Finishing Position')
+        ax.set_ylabel('Percentage Chance')
+        st.pyplot(fig)
 
     # Clear the current figure to avoid interfering with sns.histplot
     plt.clf()
@@ -56,20 +57,15 @@ st.write(xPoints)
 
 st.header('Points Per Run Distribution')
 
-# Select a player to display histogram
-player = st.selectbox('Select a player', list(points_per_run.keys()))
+# Select a player to display histogram for points per run
+selected_player_points = st.selectbox('Select a player for Points Per Run', list(points_per_run.keys()))
 
 # Clear the current figure again before creating the histogram
 plt.clf()
 
-# Create and display histogram for the selected player
-sns.histplot(points_per_run[player], bins=10, kde=True)
+# Create and display histogram for the selected player for points per run
+sns.histplot(points_per_run[selected_player_points], bins=10, kde=True, color='green')  # Change color for Points Per Run
 st.pyplot(plt)
-
-
-
-
-
 
 
 # Method Explanation
