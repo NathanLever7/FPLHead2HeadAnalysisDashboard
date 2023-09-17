@@ -38,15 +38,13 @@ st.write(times_in_position)
 st.header('Percentage in Position')
 st.write(percentage_in_position)
 
-# Display Percentage in Position as bar charts
-st.header('Percentage in Position Bar Charts')
 
 for index, row in percentage_in_position.iterrows():
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.bar(percentage_in_position.columns[1:], row[1:])
     ax.set_title(row[0])
     ax.set_xlabel('Finishing Position')
-    ax.set_ylabel('Frequency')
+    ax.set_ylabel('Percentage Change')
     st.pyplot(fig)
 
 st.header('xPoints')
