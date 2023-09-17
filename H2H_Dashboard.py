@@ -4,6 +4,7 @@ import json
 import requests
 from datetime import datetime
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Specify the raw URLs of your data files
 url_total_position = 'https://raw.githubusercontent.com/NathanLever7/FPLHead2HeadAnalysisDashboard/main/total_position.csv'
