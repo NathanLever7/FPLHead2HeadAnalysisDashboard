@@ -23,7 +23,7 @@ points_per_run = response.json()
 st.title('FPL Head2Head Analysis')
 
 # Display dataframes as tables
-st.header('CHANGE PLEASE')
+st.header('Average Position')
 st.write(total_position)
 
 st.header('Times in Position')
