@@ -28,6 +28,8 @@ last_updated_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 # Create a title
 st.title('FPL Head2Head Analysis')
 
+st.write("Skip to the bottom for explanation")
+
 # Display dataframes as tables
 st.header('Average Position')
 st.write(total_position)
