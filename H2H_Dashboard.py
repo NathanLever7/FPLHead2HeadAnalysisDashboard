@@ -105,7 +105,7 @@ st.pyplot(plt)
 st.markdown("""
 ## Explanation:
 
-In H2H leagues in Fantasy Premier League, you play against one other member of your league, based on a random fixture list generated when you set up the league. If you score more FPL points than this opponent, you will gain 3 league points. There is 1 for a draw, and 0 for a loss. Therefore, your league points are heavily influenced by the performance of your opponents - so the luck of the fixture list has a large impact.
+In H2H leagues in Fantasy Premier League, you play against one other member of your league, based on a random fixture list generated when you set up the league. If you score more FPL points than this opponent, you will gain 3 league points. 1 is gained for a draw, and 0 for a loss. Therefore, your league points are heavily influenced by the performance of your opponents - so the luck of the fixture list has a large impact.
 
 To mitigate this, we pull the scores from the FPL API, create a random fixture list, and simulate league results. This is done 10,000 times. The end result hopes to eliminate the aforementioned fixture list variance.
 
