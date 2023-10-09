@@ -62,22 +62,22 @@ st.write(xPoints)
 
 st.header('Points Per Run Distribution')
 
+# Dropdown to select player
+selected_player = st.selectbox('Select a player for Points Per Run Distribution', list(points_per_run.keys()))
 
-# Debug: Print the data to make sure it's as expected
-st.write(f"Data for {selected_player_points}: {points_per_run[selected_player_points]}")
+# Plotting
+fig, ax = plt.subplots()
 
-# Isolate: Comment out other plt.clf() lines (or remove them temporarily)
-# plt.clf()
+# Configure the histogram with bins ranging from 0 to 30
+sns.histplot(points_per_run[selected_player], bins=np.arange(-0.5, 30.5, 1), kde=False, color='green')
 
-# Explicitly create a new figure and axis
-#fig, ax = plt.subplots(figsize=(10, 5))
+# Set axis labels and title
+ax.set_xlabel('Points per Run')
+ax.set_ylabel('Frequency')
+ax.set_title(f'Points per Run Distribution for {selected_player}')
 
-# Plot using the explicit axis
-#sns.histplot(points_per_run[selected_player_points], bins=np.arange(0, 31, 1), kde=True, color='green', ax=ax, range=(0, 30))
-
-# Display the plot
-#st.pyplot(fig)
-
+# Show the plot
+st.pyplot(fig)
 
 
 
