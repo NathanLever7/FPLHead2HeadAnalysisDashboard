@@ -69,9 +69,7 @@ selected_player_points = st.selectbox('Select a player for Points Per Run', list
 plt.clf()
 
 # Create and display histogram for the selected player for points per run
-sns.histplot(points_per_run[selected_player_points], bins=np.arange(0, 31, 1), kde=True, color='green', range=(0, 30))
-
-# Display the plot
+sns.histplot(points_per_run[selected_player_points], bins=10, kde=True, color='green')  # Change color for Points Per Run
 st.pyplot(plt)
 
 
