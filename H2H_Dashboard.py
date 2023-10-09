@@ -62,16 +62,24 @@ st.write(xPoints)
 
 st.header('Points Per Run Distribution')
 
-# Select a player to display histogram for points per run
+
+# Select a player to display bar chart for points per run
 selected_player_points = st.selectbox('Select a player for Points Per Run', list(points_per_run.keys()))
 
-# Clear the current figure again before creating the histogram
+# Clear the current figure again before creating the bar chart
 plt.clf()
 
-# Create and display histogram for the selected player for points per run
-sns.histplot(points_per_run[selected_player_points], bins=10, kde=True, color='green')  # Change color for Points Per Run
-st.pyplot(plt)
+# Calculate the frequency of each unique point value for the selected player
+point_frequencies = Counter(points_per_run[selected_player_points])
+points = list(point_frequencies.keys())
+frequencies = list(point_frequencies.values())
 
+# Create and display bar chart for the selected player for points per run
+plt.bar(points, frequencies, color='green')  # Change color for Points Per Run
+plt.xlabel('Points')
+plt.ylabel('Frequency')
+plt.title(f'Points Per Run Distribution for {selected_player_points}')
+st.pyplot(plt)
 
 # Method Explanation
 st.markdown("""
