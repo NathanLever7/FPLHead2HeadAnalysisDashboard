@@ -29,11 +29,16 @@ last_updated_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 # Create a title
 st.title('FPL Head2Head Analysis')
 
-st.write("Skip to the bottom for explanation")
+st.write("Skip to the bottom for a more comprehensive explanation")
 
 # Display dataframes as tables
 st.header('Average Position')
 st.write(total_position)
+
+st.markdown("""
+On average, this is the position that each team finished in.
+""")
+
 
 st.header('Times in Position')
 st.write(times_in_position)
@@ -92,6 +97,6 @@ To mitigate this, we pull the scores from the FPL API, create a random fixture l
 
 Contact nathanleversedge@gmail.com for more info.
 
-Last updated: 28/09/2023 15:58
+Last updated: 09/10/2023 09:00
 """)
 
