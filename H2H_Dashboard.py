@@ -75,6 +75,11 @@ for index, row in percentage_in_position.iterrows():
 st.header('xPoints')
 st.write(xPoints)
 
+st.markdown("""
+This is the average amount of points that each team accumulates.
+""")
+
+
 st.header('Points Per Run Distribution')
 
 
