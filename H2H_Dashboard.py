@@ -43,10 +43,19 @@ On average, this is the position that each team finished in.
 st.header('Times in Position')
 st.write(times_in_position)
 
+st.markdown("""
+From 10,000 simulations, this is the frequency that each team finished in each position.
+""")
+
 
 # Display Percentage in Position as data tables
 st.header('Percentage in Position')
 st.write(percentage_in_position)
+
+st.markdown("""
+This is the percentage that each team finishes in each position.
+""")
+
 
 selected_player_percentage = st.selectbox('Select a player for Percentage in Position', list(points_per_run.keys()))
 
