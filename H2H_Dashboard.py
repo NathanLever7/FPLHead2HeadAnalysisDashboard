@@ -62,7 +62,6 @@ st.write(xPoints)
 
 st.header('Points Per Run Distribution')
 
-# ... (Your previous code here)
 
 # Debug: Print the data to make sure it's as expected
 st.write(f"Data for {selected_player_points}: {points_per_run[selected_player_points]}")
@@ -71,13 +70,13 @@ st.write(f"Data for {selected_player_points}: {points_per_run[selected_player_po
 # plt.clf()
 
 # Explicitly create a new figure and axis
-fig, ax = plt.subplots(figsize=(10, 5))
+#fig, ax = plt.subplots(figsize=(10, 5))
 
 # Plot using the explicit axis
-sns.histplot(points_per_run[selected_player_points], bins=np.arange(0, 31, 1), kde=True, color='green', ax=ax, range=(0, 30))
+#sns.histplot(points_per_run[selected_player_points], bins=np.arange(0, 31, 1), kde=True, color='green', ax=ax, range=(0, 30))
 
 # Display the plot
-st.pyplot(fig)
+#st.pyplot(fig)
 
 
 
