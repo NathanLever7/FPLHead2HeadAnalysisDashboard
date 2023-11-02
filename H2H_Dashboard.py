@@ -83,23 +83,43 @@ This is the average amount of points that each team accumulates.
 st.header('Points Per Run Distribution')
 
 
-# Select a player to display bar chart for points per run
-selected_player_points = st.selectbox('Select a player for Points Per Run', list(points_per_run.keys()))
+import matplotlib.pyplot as plt
+from collections import Counter
 
-# Clear the current figure again before creating the bar chart
-plt.clf()
+# Assuming points_per_run is a dictionary where each key is a player's name
+# and the value is a list/array of points per run.
 
-# Calculate the frequency of each unique point value for the selected player
-point_frequencies = Counter(points_per_run[selected_player_points])
-points = list(point_frequencies.keys())
-frequencies = list(point_frequencies.values())
+# First, determine the overall range for the x-axis, if not known
+all_points = []
+for player_points in points_per_run.values():
+    all_points.extend(player_points)
+min_points, max_points = min(all_points), max(all_points)
 
-# Create and display bar chart for the selected player for points per run
-plt.bar(points, frequencies, color='green')  # Change color for Points Per Run
-plt.xlabel('Points')
-plt.ylabel('Frequency')
-plt.title(f'Points Per Run Distribution for {selected_player_points}')
-st.pyplot(plt)
+# Setting up a 3x2 grid of subplots
+fig, axes = plt.subplots(3, 2, figsize=(15, 10))  # Adjust figsize as needed
+fig.suptitle('Points Per Run Distribution for All Players')
+
+# Flatten the axes array for easy iteration
+axes = axes.flatten()
+
+for idx, (player, runs) in enumerate(points_per_run.items()):
+    # Calculate frequencies
+    point_frequencies = Counter(runs)
+    points = list(point_frequencies.keys())
+    frequencies = list(point_frequencies.values())
+
+    # Plotting
+    axes[idx].bar(points, frequencies, color='green')
+    axes[idx].set_xlabel('Points')
+    axes[idx].set_ylabel('Frequency')
+    axes[idx].set_title(player)
+    axes[idx].set_xlim(min_points, max_points)  # Set the same x-axis scale for all plots
+
+# Adjust layout to prevent overlap
+plt.tight_layout()
+plt.subplots_adjust(top=0.9)  # Adjust the top spacing to accommodate the main title
+st.pyplot(fig)
+
 
 # Method Explanation
 st.markdown("""
