@@ -111,6 +111,6 @@ To mitigate this, we pull the scores from the FPL API, create a random fixture l
 
 Contact nathanleversedge@gmail.com for more info.
 
-Last updated: 09/10/2023 09:00
+Last updated: 02/11/2023 11:41
 """)
 
