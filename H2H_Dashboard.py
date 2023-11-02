@@ -82,14 +82,7 @@ This is the average amount of points that each team accumulates.
 
 st.header('Points Per Run Distribution')
 
-
-import matplotlib.pyplot as plt
-from collections import Counter
-
-# Assuming points_per_run is a dictionary where each key is a player's name
-# and the value is a list/array of points per run.
-
-# First, determine the overall range for the x-axis, if not known
+# First, determine the overall range for the x-axis
 all_points = []
 for player_points in points_per_run.values():
     all_points.extend(player_points)
